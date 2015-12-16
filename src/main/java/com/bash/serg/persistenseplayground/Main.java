@@ -43,7 +43,7 @@ public class Main {
                 if(s1.equals(SELECT)){
                     TypedQuery<Inventory> query =
                             entityManager.createQuery("SELECT inv FROM Inventory inv", Inventory.class);
-                    List<Inventory> results = query.getResultList();
+                    List <Inventory> results = query.getResultList();
                     for(int i = 0; i < results.size(); i++) {
                         System.out.print(results.get(i).getBrand() + " ");
                         System.out.print(results.get(i).getColor() + " ");
