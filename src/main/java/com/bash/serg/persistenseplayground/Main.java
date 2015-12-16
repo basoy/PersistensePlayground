@@ -39,8 +39,6 @@ public class Main {
                     List <String> cars = Arrays.asList(res);
                     car = new Inventory(cars.get(0).replace("insert ", ""),
                             Integer.parseInt(cars.get(1)), cars.get(2));
-                    break;
-
                 }
                 if(s1.equals(SELECT)){
                     TypedQuery<Inventory> query =
@@ -49,16 +47,17 @@ public class Main {
                     for(int i = 0; i < results.size(); i++) {
                         System.out.print(results.get(i).getBrand() + " ");
                         System.out.print(results.get(i).getColor() + " ");
-                        System.out.print(results.get(i).getYear());
+                        System.out.println(results.get(i).getYear());
                     }
                 }
                 if(s1.equals(EXIT)) {
                     break;
                 }
             }
-            entityManager.persist(car);
+            if(car != null){
+                entityManager.persist(car);
+            }
             transaction.commit();
-            System.exit(0);
 
         } catch (Exception ex)
         {
