@@ -61,4 +61,14 @@ public class Inventory  implements Serializable {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                ", year=" + year +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }

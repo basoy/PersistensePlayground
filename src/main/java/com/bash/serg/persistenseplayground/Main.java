@@ -44,9 +44,7 @@ public class Main {
                             entityManager.createQuery("SELECT inv FROM Inventory inv", Inventory.class);
                     List <Inventory> results = query.getResultList();
                     for(int i = 0; i < results.size(); i++) {
-                        System.out.print(results.get(i).getBrand() + " ");
-                        System.out.print(results.get(i).getColor() + " ");
-                        System.out.println(results.get(i).getYear());
+                        System.out.print(results.get(i).toString());
                     }
                 }
                 if(s1.equals(EXIT)) {
