@@ -2,10 +2,7 @@ package com.bash.serg.persistenseplayground;
 
 import com.bash.serg.persistenseplayground.entity.Inventory;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -46,7 +43,14 @@ public class Main {
 
                 }
                 if(s1.equals(SELECT)){
-                    System.out.println("select");
+                    TypedQuery<Inventory> query =
+                            entityManager.createQuery("SELECT inv FROM Inventory inv", Inventory.class);
+                    List<Inventory> results = query.getResultList();
+                    for(int i = 0; i < results.size(); i++) {
+                        System.out.print(results.get(i).getBrand() + " ");
+                        System.out.print(results.get(i).getColor() + " ");
+                        System.out.print(results.get(i).getYear());
+                    }
                 }
                 if(s1.equals(EXIT)) {
                     break;
