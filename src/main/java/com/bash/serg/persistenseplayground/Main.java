@@ -37,6 +37,7 @@ public class Main {
                     List <String> cars = Arrays.asList(res);
                     car = new Inventory(cars.get(0).replace("insert ", ""),
                             Integer.parseInt(cars.get(1)), cars.get(2));
+                    break;
                 }
                 if(s1.equals(SELECT)){
                     TypedQuery<Inventory> query =
