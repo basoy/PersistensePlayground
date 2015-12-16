@@ -3,8 +3,6 @@ package com.bash.serg.persistenseplayground;
 import com.bash.serg.persistenseplayground.entity.Inventory;
 
 import javax.persistence.*;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
