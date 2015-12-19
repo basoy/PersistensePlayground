@@ -3,6 +3,9 @@ package com.bash.serg.persistenseplayground;
 import com.bash.serg.persistenseplayground.entity.Inventory;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -40,12 +43,15 @@ public class Main {
                     break;
                 }
                 if(s1.equals(SELECT)){
-                    TypedQuery<Inventory> query =
-                            entityManager.createQuery("SELECT inv FROM Inventory inv", Inventory.class);
-                    List <Inventory> results = query.getResultList();
-                    for(int i = 0; i < results.size(); i++) {
-                        System.out.print(results.get(i).toString());
+                    CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+                    CriteriaQuery<Inventory> q = cb.createQuery(Inventory.class);
+                    Root<Inventory> c = q.from(Inventory.class);
+                    TypedQuery<Inventory> tq = entityManager.createQuery( q.select(c));
+                    List<Inventory> result = tq.getResultList();
+                    for(Inventory inventory:result){
+                        System.out.println(inventory);
                     }
+
                 }
                 if(s1.equals(EXIT)) {
                     break;
