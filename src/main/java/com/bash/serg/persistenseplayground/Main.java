@@ -43,12 +43,12 @@ public class Main {
                     break;
                 }
                 if(s1.equals(SELECT)){
-                    CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-                    CriteriaQuery<Inventory> q = cb.createQuery(Inventory.class);
-                    Root<Inventory> c = q.from(Inventory.class);
-                    TypedQuery<Inventory> tq = entityManager.createQuery( q.select(c));
-                    List<Inventory> result = tq.getResultList();
-                    for(Inventory inventory:result){
+                    CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+                    CriteriaQuery <Inventory> _query = criteriaBuilder.createQuery(Inventory.class);
+                    Root <Inventory> _from = _query.from(Inventory.class);
+                    TypedQuery <Inventory> tq = entityManager.createQuery(_query.select(_from));
+                    List <Inventory> result = tq.getResultList();
+                    for(Inventory inventory : result){
                         System.out.println(inventory);
                     }
 
